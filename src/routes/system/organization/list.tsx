@@ -6,7 +6,7 @@ import { matchPath } from "react-router";
 import ContentWapper from "../../../components/content-wapper";
 import TwoCol from "../../../components/layout/twoCol";
 import { Route, Switch, Redirect } from "react-router-dom";
-// import Info from "./info";
+import Info from "./info";
 
 import Tree from "../../../components/tree";
 
@@ -117,11 +117,10 @@ class List extends React.Component<IListProps, any> {
   rightComponent = () => {
     let { match } = this.props;
     return (
-      //   <Switch>
-      //     <Redirect exact from={`${match.url}/`} to={`${match.url}/info`} />
-      //     <Route path={`${match.url}/info/:organizationId?`} component={Info} />
-      //   </Switch>
-      <div>right</div>
+      <Switch>
+        <Redirect exact from={`${match.url}/`} to={`${match.url}/info`} />
+        <Route path={`${match.url}/info/:organizationId?`} component={Info} />
+      </Switch>
     );
   };
   public render() {
