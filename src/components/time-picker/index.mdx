@@ -1,0 +1,79 @@
+---
+name: TimePicker
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import TimePicker from './index.tsx';
+import Button from '../button';
+import moment from 'moment';
+
+# TimePicker
+
+## 基础用法
+
+<Playground>
+  <TimePicker placeholder="请选择时间" />
+</Playground>
+
+## 默认值
+
+<Playground>
+  <TimePicker placeholder="请选择时间" defaultValue={moment('12:08:23', 'HH:mm:ss')} />
+</Playground>
+
+## 禁用
+
+<Playground>
+  <TimePicker placeholder="请选择时间" defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />
+</Playground>
+
+## 选择时分
+
+<Playground>
+  <TimePicker
+    placeholder="请选择时间"
+    defaultValue={moment('12:08:23', 'HH:mm:ss')}
+    format={'HH:mm'}
+  />
+</Playground>
+
+## 设置步长
+
+<Playground>
+  <TimePicker placeholder="请选择时间" minuteStep={15} secondStep={10} />
+</Playground>
+
+## 底部自定义内容
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { open: false }
+    }
+    handleOpenChange (open) {this.setState({ open });}
+    handleClose (){this.setState({ open: false })} 
+    render() {
+      return (
+        <div>
+       <TimePicker placeholder="请选择时间" open={this.state.open} onOpenChange={this.handleOpenChange.bind(this)} addon={() => (
+          <Button type="primary" onClick={this.handleClose.bind(this)}>
+            Ok
+          </Button>
+        )}/>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>
+
+## 12 小时制
+
+<Playground>
+  <TimePicker placeholder="请选择时间" use12Hours format="h:mm:ss A" />
+</Playground>

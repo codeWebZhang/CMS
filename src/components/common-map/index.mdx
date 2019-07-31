@@ -1,0 +1,257 @@
+---
+name: Map
+menu: 数据展示
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import CommonMap from './index';
+
+# CommonMap 地图
+
+## 基本使用
+
+<Playground>
+  <CommonMap height={644} width={660} containerId="example-base" />
+</Playground>
+
+## 添加标记点
+
+<Playground>
+  {() => {
+    let pointsData = [
+      { address: [116.521114, 39.871422], type: 0 },
+      { address: [116.397428, 39.90923], type: 1 },
+      { address: [116.522222, 39.912345], type: 2 },
+      { address: [116.419854, 39.942388], type: 3 }
+    ];
+    return <CommonMap height={644} width={660} containerId="example-points" points={pointsData} />;
+  }}
+</Playground>
+
+## 信息窗口
+
+### 简单文本标签
+
+<Playground>
+  {() => {
+    let pointsData = [
+      { address: [116.522222, 39.912345], type: 0, lable: '标记点信息示例1' },
+      { address: [116.397428, 39.90923], type: 1, lable: '标记点信息示例2' },
+      { address: [116.419854, 39.942388], type: 3, lable: '标记点信息示例3' }
+    ];
+    return (
+      <CommonMap
+        height={644}
+        width={660}
+        containerId="example-infoWindow-simple"
+        points={pointsData}
+        showInfoLable={true}
+      />
+    );
+  }}
+</Playground>
+
+### 自定义信息窗口模板
+
+<Playground>
+  {() => {
+    let pointsData = [
+      { address: [116.522222, 39.912345], type: 0, deviceInfo: {
+      id: 1,
+      name: 'Device0001',
+      type: 'LED路灯',
+      img: null,
+      abilitys: 6,
+      state: '离线',
+      organization: '北京分销商'
+    } },
+      { address: [116.397428, 39.90923], type: 1, deviceInfo: {
+      id: 2,
+      name: 'Device0002',
+      type: 'LED路灯',
+      img: null,
+      abilitys: 6,
+      state: '离线',
+      organization: '北京分销商'
+    } },
+      { address: [116.419854, 39.942388], type: 3, deviceInfo: {
+      id: 3,
+      name: 'Device0003',
+      type: 'LED路灯',
+      img: null,
+      abilitys: 6,
+      state: '离线',
+      organization: '北京分销商'
+    } }
+    ];
+
+    let customContent = (point)=>{
+        let content = `
+        <div>
+          <div class='device'>
+            <div class='img'></div>
+            <div class='info'>
+              <div style='font-weight:500'>${point.deviceInfo.name}</div>
+              <div>${point.deviceInfo.type}</div>
+            </div>
+          </div>
+          <div class='baseInfo'>
+            <div>基本信息</div>
+            <div>当前状态： ${point.deviceInfo.state}</div>
+            <div>功能个数： ${point.deviceInfo.abilitys} 个</div>
+            <div>所属机构： ${point.deviceInfo.organization}</div>
+          </div>
+          <a style='margin-left:10px'>查看更多  >></a>
+        </div>`;
+        return content;
+    }
+    return (
+      <CommonMap
+        height={644}
+        width={660}
+        containerId="example-infoWindow-custom"
+        points={pointsData}
+        showInfoWindow={true}
+        customContent={customContent}
+        defaultOpen={true}
+      />
+    );
+
+}}
+
+</Playground>
+
+## 地理编码
+
+### 正向地理编码 (地址 -> 坐标)
+
+<Playground>
+  {class GeocoderExample extends React.Component {
+    constructor() {
+      super()
+      this.state = { value: '' }
+    }
+
+    render() {
+      let  handleGetLnglat = (point)=>{
+        document.getElementById('example-forward-geocoder-lnglat').value = point.lnglat
+      }
+      return (
+        <div>
+          <p>点击地图获取取址信息</p>
+          <p>地址信息:
+            <input style={{width:400,marginTop:20}} id='example-forward-geocoder-address'
+              defaultValue={this.state.value}/><button onClick={()=>{this.setState({value:document.getElementById('example-forward-geocoder-address').value})}}>查询</button></p>
+          <p>坐标信息:<input disabled style={{width:400}} id='example-forward-geocoder-lnglat' /></p>
+          <CommonMap
+            height={644}
+            width={660}
+            containerId="example-forward-geocoder"
+            getLnglat = {handleGetLnglat}
+            searchValue = {this.state.value}
+          />
+        </div>
+      );
+    }
+
+}}
+
+</Playground>
+
+### 逆向地理编码 (坐标 -> 地址)
+
+<Playground>
+  {() => {
+    let handleGetAddress = (point) => {
+      document.getElementById('example-reverse-geocoder-address').value = point.address;
+      document.getElementById('example-reverse-geocoder-lnglat').value = point.lnglat;
+    };
+    return (
+      <div>
+        <p>点击地图获取取址信息</p>
+        <CommonMap
+          height={644}
+          width={660}
+          containerId="example-reverse-geocoder"
+          getAddress={handleGetAddress}
+        />
+        <p>
+          地址信息:
+          <input
+            disabled
+            style={{ width: 400, marginTop: 20 }}
+            id="example-reverse-geocoder-address"
+          />
+        </p>
+        <p>
+          坐标信息:
+          <input disabled style={{ width: 400 }} id="example-reverse-geocoder-lnglat" />
+        </p>
+      </div>
+    );
+  }}
+</Playground>
+
+### 输入提示
+
+<Playground>
+  {class InputAutocompleteExample extends React.Component {
+    constructor() {
+      super()
+      this.state = { value: '' }
+    }
+
+    handleChange(){
+      this.setState({value:document.getElementById('example-inputAutocomplete-address').value})
+    }
+
+    getAutocompletValue(value){
+      console.log(value, '========>value')
+      document.getElementById('example-inputAutocomplete-back').innerHTML = JSON.stringify(value)
+    }
+
+    render() {
+      return (
+        <div>
+          <p>输入查询信息:
+            <input style={{width:400,marginTop:20}} id='example-inputAutocomplete-address'
+              defaultValue={this.state.value} onChange={this.handleChange.bind(this)}/>
+            <button onClick={()=>{this.setState({value:document.getElementById('example-inputAutocomplete-address').value})}}>
+              查询
+            </button>
+          </p>
+          <p id="example-inputAutocomplete-back"></p>
+          <CommonMap
+            height={644}
+            width={660}
+            containerId="example-inputAutocomplete"
+            inputAutocomplete = {this.state.value}
+            getInputAutocompletValue = {this.getAutocompletValue}
+          />
+        </div>
+      );
+    }
+
+}}
+
+</Playground>
+
+## API
+
+| 参数           | 类型     | 默认值                 | 说明                                                              |
+| -------------- | -------- | ---------------------- | ----------------------------------------------------------------- |
+| height         | number   | 600                    | 地图高度,默认为 600px,请务必确认容器具有高度                      |
+| width          | number   | 600                    | 地图宽度默认为 600px,                                             |
+| containerId    | string   | "amapContainer"        | 地图容地 dom ID,当使用默认值时,同一页面只可挂载一个地图           |
+| mapLevel       | number   | 11                     | 地图比例尺级别,取值范围 1-15                                      |
+| center         | array    | [116.397428, 39.90923] | [Lng,Lat],中心点坐标,默认为天安门坐标                             |
+| showScale      | boolean  | true                   | 是否显示缩放按钮                                                  |
+| points         | array    | []                     | 标记点 { address:[lng,lat], type: (0:正常,1:一般,2:严重,3:紧急) } |
+| showInfoLable  | boolean  | false                  | 是否显示文本标签, points 信息中需包含 lable                       |
+| showInfoWindow | boolean  | false                  | 是否显示信息窗口                                                  |
+| customContent  | function |                        | 自定义 infowindow 模版函数                                        |
+| defaultOpen    | boolean  | false                  | 是否默认打开一个 infowindow                                       |
+| getAddress     | function | -                      | 是否使用逆向地理编码,从地图中获取点的地址、坐标信息               |
+| getLnglat      | function | -                      | 是否使用正向地理编码,输入地址,获取点的坐标信息                    |
+| searchValue    | string   | -                      | 地址搜索值                                                        |

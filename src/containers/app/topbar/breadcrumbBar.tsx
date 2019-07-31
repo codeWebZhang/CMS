@@ -59,7 +59,7 @@ class BreadcrumbBar extends React.Component<BreadcrumbBarProps, any> {
         cls = classes.item_curr;
       }
       items.push(
-        <Breadcrumb.Item>
+        <Breadcrumb.Item key={index}>
           <span className={cls}>{path[index].title}</span>
         </Breadcrumb.Item>
       );

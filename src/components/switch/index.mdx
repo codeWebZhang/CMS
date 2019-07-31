@@ -1,0 +1,70 @@
+---
+name: Switch
+menu: 数据录入
+order: 10
+---
+
+import { Playground } from 'docz';
+import Switch from './index.tsx';
+import Button from '../button';
+
+# Switch 开关
+
+## 基础
+
+<Playground>
+{class C extends React.Component {
+    constructor() {
+        super();
+    }
+    
+    onChange(checked){
+    }
+
+    render() {
+        return <Switch defaultChecked onChange={this.onChange} />;
+    }
+
+}}
+
+</Playground>
+
+## 不可用
+
+<Playground>
+{class C extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            disabled: true
+        }
+    }
+    
+    
+    toggle(){
+        this.setState({
+            disabled: !this.state.disabled
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <Switch disabled={this.state.disabled} defaultChecked />
+                <br /><br />
+                <Button type="primary" onClick={this.toggle.bind(this)}>Toggle disabled</Button>
+            </div>
+        );
+    }
+
+}}
+
+</Playground>
+
+## 两种大小
+
+<Playground>
+  <Switch defaultChecked />
+  <br />
+  <Switch size="small" defaultChecked />
+</Playground>

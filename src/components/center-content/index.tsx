@@ -1,18 +1,18 @@
-import * as React from "react";
-import { withStyles } from "@material-ui/styles";
+import * as React from 'react';
+import { withStyles } from '@material-ui/styles';
 
 export interface CenterContentProps {
   classes;
 }
-const styles = theme => {
+const styles = (theme) => {
   return {
     root: {
-      display: "flex",
-      justifyContent: "center"
+      display: 'flex',
+      justifyContent: 'center'
     },
     content: {
-      flex: "auto",
-      minHeight: "0"
+      flex: 'auto',
+      minHeight: '0'
       //   maxWidth: '1200px'
     }
   };

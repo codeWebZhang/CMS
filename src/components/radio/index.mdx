@@ -1,0 +1,100 @@
+---
+name: Radio
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import { Radio, RadioGroup, RadioButton } from './index.tsx';
+
+# Radio 单选框
+
+## 基本使用
+
+<Playground>
+  <Radio>A</Radio>
+</Playground>
+
+## 自定义颜色
+
+<Playground>
+  <Radio color="#41A0FF">A</Radio>
+</Playground>
+
+## 单选组合
+
+<Playground>
+  <RadioGroup size="small" name="radiogroup" defaultValue={1}>
+    <Radio value={1}>A</Radio>
+    <Radio value={2}>B</Radio>
+  </RadioGroup>
+</Playground>
+
+## 不可用
+
+<Playground>
+
+    <Radio disabled={true}>Disabled</Radio>
+
+</Playground>
+
+## 单选组合不可用
+
+<Playground>
+  <RadioGroup size="small" name="radiogroup" defaultValue={1} disabled={true}>
+    <Radio value={1}>Disabled</Radio>
+    <Radio value={2}>Disabled</Radio>
+  </RadioGroup>
+</Playground>
+
+## 按钮样式
+
+<Playground>
+
+    <RadioGroup defaultValue="default" size="small">
+      <RadioButton value="large">Large</RadioButton>
+      <RadioButton value="default">Default</RadioButton>
+      <RadioButton value="small">Small</RadioButton>
+      <RadioButton value="xs">xs</RadioButton>
+    </RadioGroup>
+
+</Playground>
+
+## 填底的按钮样式
+
+<Playground>
+
+    <RadioGroup defaultValue="large" buttonStyle="solid" size="small">
+      <RadioButton value="large">Large</RadioButton>
+      <RadioButton value="default">Default</RadioButton>
+      <RadioButton value="small">Small</RadioButton>
+      <RadioButton value="xs">xs</RadioButton>
+    </RadioGroup>
+
+</Playground>
+
+## 按钮样式不可用
+
+<Playground>
+
+    <RadioGroup defaultValue="default" size="small">
+      <RadioButton value="large" disabled={true}>Large</RadioButton>
+      <RadioButton value="default">Default</RadioButton>
+      <RadioButton value="small" disabled={true}>Small</RadioButton>
+      <RadioButton value="xs" >xs</RadioButton>
+    </RadioGroup>
+
+</Playground>
+
+## 填底的按钮样式不可用
+
+<Playground>
+
+    <RadioGroup defaultValue="default" buttonStyle="solid" size="small">
+      <RadioButton value="large">Large</RadioButton>
+      <RadioButton value="default" disabled={true}>Default</RadioButton>
+      <RadioButton value="small">Small</RadioButton>
+      <RadioButton value="xs" disabled={true}>xs</RadioButton>
+    </RadioGroup>
+
+</Playground>

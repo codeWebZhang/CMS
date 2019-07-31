@@ -1,0 +1,78 @@
+---
+name: CardGroup
+menu: 复合控件
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import CardGroup from './index.old.tsx';
+
+# CardGroup
+
+## 基本使用
+
+<Playground>
+  <div
+    style={{
+      height: '531px',
+      overflow: 'auto',
+      width: '664px',
+      padding: '8px',
+      margin: '0 auto'
+    }}
+  >
+    <CardGroup />
+  </div>
+</Playground>
+
+## 有滚动条
+
+<Playground>
+  <div
+    style={{
+      height: '330px',
+      overflow: 'auto',
+      padding: '5px'
+    }}
+  >
+    <CardGroup />
+  </div>
+</Playground>
+
+## 两列显示
+
+<Playground>
+  <div
+    style={{
+      height: '330px',
+      overflow: 'auto',
+      padding: '5px'
+    }}
+  >
+    <CardGroup column={2} />
+  </div>
+</Playground>
+
+## 四列显示
+
+<div
+  style={{
+    height: '330px',
+    overflow: 'auto',
+    padding: '2px'
+  }}
+>
+  <CardGroup column={4} />
+</div>
+
+```
+<div
+  style={{
+    height: '330px',
+    overflow: 'auto',
+    padding: '2px'
+  }}
+>
+  <CardGroup column={4} />
+</div>
+```

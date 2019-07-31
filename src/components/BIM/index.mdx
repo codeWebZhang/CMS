@@ -1,0 +1,37 @@
+---
+name: BIM
+menu: 数据展示
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import BIM from './index';
+
+# BIM 建筑信息 3d 可视化组件
+
+## 基本使用
+
+<Playground>
+  <BIM
+    height={644}
+    width={660}
+    viewToken={'f00b6de5c8174d028a3f3c43dc9dc494'}
+    containerId="example-base"
+  />
+</Playground>
+
+## 自动旋转
+
+<Playground>
+  <BIM height={644} width={660} autoRotate={true} containerId="example-base-autorotate" />
+</Playground>
+
+## API
+
+| 参数        | 类型    | 默认值          | 说明                                                    |
+| ----------- | ------- | --------------- | ------------------------------------------------------- |
+| height      | number  | 600             | BIM 高度,默认为 600px,请务必确认容器具有高度            |
+| width       | number  | 600             | BIM 宽度默认为 600px,                                   |
+| containerId | string  | "amapContainer" | BIM 容地 dom ID,当使用默认值时,同一页面只可挂载一个地图 |
+| viewToken   | string  | -               | 加载模型的 token ,可通过借口获取                        |
+| autoRotate  | boolean | -               | 模型自动旋转                                            |

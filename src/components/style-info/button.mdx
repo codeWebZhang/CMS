@@ -1,0 +1,112 @@
+---
+name: Button 按钮
+menu: 样式
+order: 3
+---
+
+import { Playground, Props } from 'docz';
+import Button, { SpecialButton } from '../button';
+import ButtonGroup from '../button/buttonGroup';
+
+## 基本
+
+<Button type="primary">主色</Button>
+
+    <Button type="primary">主色</Button>
+
+<Button type="default">白色</Button>
+
+    <Button type="default">白色</Button>
+
+<Button bgcolor="green" type="primary">
+  绿色
+</Button>
+
+    <Button bgcolor="green" type="primary">绿色</Button>
+
+<Button type="primary" disabled>
+  禁用
+</Button>
+
+    <Button type="primary" disabled>禁用</Button>
+
+<div style={{ width: '72px' }}>
+  <Button type="primary" block>
+    主色72
+  </Button>
+</div>
+
+    <div style={{ width: '72px' }}><Button type="primary" block >主色72</Button></div>
+
+<div style={{ width: '72px' }}>
+  <Button type="default" block>
+    白色72
+  </Button>
+</div>
+
+    <div style={{ width: '72px' }}><Button type="default" block>白色72</Button></div>
+
+<Button bgcolor="dark" bordercolor="dark" color="white">
+  图表视图
+</Button>
+
+    <Button bgcolor="dark" bordercolor="dark" color="white">图表视图</Button>
+
+<Button type="primary">图表视图</Button>
+
+    <Button type="primary">图表视图</Button>
+
+<div
+  style={{
+    width: '100px',
+    height: '50px',
+    backgroundColor: '#666',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}
+>
+  <SpecialButton>特殊按钮</SpecialButton>
+</div>
+
+    <div style={{width:'100px', height: '50px', backgroundColor: '#666', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><SpecialButton >特殊按钮</SpecialButton></div>
+
+<ButtonGroup>
+  <Button>1小时</Button>
+  <Button>24小时</Button>
+  <Button>7天</Button>
+  <Button>自定义</Button>
+</ButtonGroup>
+
+    <ButtonGroup><Button>1小时</Button><Button>24小时</Button><Button>7天</Button><Button>自定义</Button></ButtonGroup>
+
+<ButtonGroup bottomradius={true}>
+  <Button>1小时</Button>
+  <Button>24小时</Button>
+  <Button>7天</Button>
+  <Button>自定义</Button>
+</ButtonGroup>
+
+    <ButtonGroup bottomradius={true}><Button>1小时</Button><Button>24小时</Button><Button>7天</Button><Button>自定义</Button></ButtonGroup>
+
+## 图标
+
+<Button type="primary" icon="search" />
+
+    <Button type="primary" icon="search" />
+
+<Button type="primary" icon="search" iconbgcolor="dark" />
+
+    <Button type="primary" icon="search" iconbgcolor="dark" />
+
+<Button type="primary" icon="close" iconbgcolor="dark" />
+
+    <Button type="primary" icon="close" iconbgcolor="dark" />
+
+<Button type="primary" icon="view" iconbgcolor="dark" />
+
+    <Button type="primary" icon="view" iconbgcolor="dark" />
+
+<Button type="primary" icon="search" disabled />
+
+    <Button type="primary" icon="search" disabled/>

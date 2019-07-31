@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-// import App from '../../routes';
+import App from "../../routes";
 
 import { Col, Row } from "antd";
 
@@ -65,8 +65,7 @@ class MainApp extends React.Component<MainAppProps, any> {
             }}
           >
             <Content>
-              {/* <App match={match} /> */}
-              <div>hello demo</div>
+              <App match={match} />
             </Content>
           </div>
           <Footbar />

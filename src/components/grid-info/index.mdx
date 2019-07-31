@@ -1,0 +1,43 @@
+---
+name: GridInfo
+menu: 容器
+order: 10
+---
+
+import { Playground } from 'docz';
+import { GridInfo, GridInfoItem } from './index.tsx';
+
+# ContentInfo 信息容器
+
+<Playground>
+  <GridInfo>
+    <GridInfoItem title="demo" span={2} content="2" />
+    <GridInfoItem title="demo" span={2} content="2" />
+    <GridInfoItem title="demo" span={1} content="2" />
+    <GridInfoItem title="demo2222" span={1} content="2" lb="none" />
+    <GridInfoItem
+      title="demo"
+      span={2}
+      content={
+        <div>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+          accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+          sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+          elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+          diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+          gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+      }
+    />
+    <GridInfoItem title="demo" span={2} content="2" />
+    <GridInfoItem title="demo" span={2} content="2" />
+  </GridInfo>
+</Playground>
+
+<Playground>
+  <GridInfo>
+    <GridInfoItem title="demo" span={2} content="2" />
+    <GridInfoItem title="demo" span={2} content="2" />
+  </GridInfo>
+</Playground>

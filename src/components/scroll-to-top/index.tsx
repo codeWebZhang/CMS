@@ -1,5 +1,5 @@
-import * as React from "react";
-import { withRouter } from "react-router";
+import * as React from 'react';
+import { withRouter } from 'react-router';
 
 export interface ScrollToTopProps {
   location;

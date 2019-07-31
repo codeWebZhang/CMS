@@ -1,0 +1,42 @@
+---
+name: Checkbox
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Checkbox from './index';
+
+# Checkbox 多选框
+
+## 基本使用
+
+<Checkbox title={'名称'} />
+
+    <Checkbox title={'名称'} />
+
+## 默认选中
+
+<Checkbox defaultChecked={true} title={'名称'} />
+
+    <Checkbox defaultChecked={true}  title={'名称'}/>
+
+## 不可用
+
+<Checkbox title={'名称'} disabled={true} />
+<Checkbox title={'名称'} disabled={true} defaultChecked={true} />
+
+    <Checkbox title={'名称'} disabled={true} />
+    <Checkbox title={'名称'} disabled={true}  defaultChecked={true} />
+
+## 全选
+
+<Checkbox title={'名称'} indeterminate={true} />
+
+    <Checkbox title={'名称'} indeterminate={true} />
+
+## 选中事件
+
+<Checkbox title={'名称'} onChange={console.log} />
+
+    <Checkbox title={'名称'} onChange={console.log} />

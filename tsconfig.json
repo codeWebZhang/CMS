@@ -14,7 +14,9 @@
     "strictNullChecks": false,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "compileOnSave": false,
   "include": ["./src/**/*"],

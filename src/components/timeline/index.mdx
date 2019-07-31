@@ -1,0 +1,130 @@
+---
+name: Timeline
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import { Timeline, TimelineItem } from './index.tsx';
+
+# Timeline 时间轴
+
+## 基本使用
+
+<Playground>
+  <Timeline>
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Solve initial network problems 2015-09-01</TimelineItem>
+    <TimelineItem>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+      beatae vitae dicta sunt explicabo.
+    </TimelineItem>
+    <TimelineItem>Network problems being solved 2015-09-01</TimelineItem>
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Technical testing 2015-09-01</TimelineItem>
+  </Timeline>
+</Playground>
+
+## 激活状态
+
+> index 和 curIndex 配套使用，控制 TimelineItem 是否为激活状态。 当 index == curIndex ,TimelineItem 激活。
+
+<Playground>
+    
+{class TimelineTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { cur: 2 }
+    }
+
+    doShow (id){
+      this.setState({ cur: id })
+    }
+
+    render() {
+      const data = [{
+        id:1,
+        content: 'Create a services site 2015-09-01'
+      },
+      {
+        id:2,
+        content: 'Solve initial network problems 2015-09-01'
+      },
+      {
+        id:3,
+        content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      }];
+      return (
+        <Timeline>
+          {
+            data.map((item)=>{
+              return (
+                <TimelineItem key={item.id} index={item.id} curIndex={this.state.cur} onClick={this.doShow.bind(this,item.id)}>
+                  {item.content}
+                </TimelineItem>
+              )
+            })
+          }
+        </Timeline>
+      )
+    }
+
+}}
+
+</Playground>
+
+## 右侧展现
+
+<Playground>
+  <Timeline mode="right">
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Solve initial network problems 2015-09-01</TimelineItem>
+    <TimelineItem>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+      beatae vitae dicta sunt explicabo.
+    </TimelineItem>
+    <TimelineItem>Network problems being solved 2015-09-01</TimelineItem>
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Technical testing 2015-09-01</TimelineItem>
+  </Timeline>
+</Playground>
+
+## 交替展现
+
+<Playground>
+  <Timeline mode="alternate">
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Solve initial network problems 2015-09-01</TimelineItem>
+    <TimelineItem>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+      beatae vitae dicta sunt explicabo.
+    </TimelineItem>
+    <TimelineItem>Network problems being solved 2015-09-01</TimelineItem>
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem>Technical testing 2015-09-01</TimelineItem>
+  </Timeline>
+</Playground>
+
+## 自定义时间轴点
+
+<Playground>
+  <Timeline mode="alternate">
+    <TimelineItem dot={<span className="iconfont icon-time" />}>
+      Create a services site 2015-09-01
+    </TimelineItem>
+    <TimelineItem color="green">Solve initial network problems 2015-09-01</TimelineItem>
+    <TimelineItem>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+      beatae vitae dicta sunt explicabo.
+    </TimelineItem>
+    <TimelineItem>Network problems being solved 2015-09-01</TimelineItem>
+    <TimelineItem>Create a services site 2015-09-01</TimelineItem>
+    <TimelineItem dot={<span className="iconfont icon-time" />} color="red">
+      Technical testing 2015-09-01
+    </TimelineItem>
+  </Timeline>
+</Playground>

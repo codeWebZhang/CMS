@@ -1,0 +1,43 @@
+---
+name: Progress
+menu: 数据展示
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Progress from './index';
+
+# Progress 进度条
+
+## 基本使用
+
+<Progress percent={80} status="active" content="正常  有动画(80%)" />
+
+    <Progress percent={10} strokeColor="#30CE48"  content="正常(10%)" />
+
+<Progress percent={80} content="正常(80%)" />
+
+    <Progress percent={80} content="正常(80%)" />
+
+<Progress percent={60} strokeColor="#F7941C" content="严重(40%)" />
+
+    <Progress percent={60} strokeColor="#F7941C" status="active" content="严重(40%)" />
+
+<Progress percent={10} strokeColor="#FF0000" content="紧急(10%)" />
+
+    <Progress percent={10} strokeColor='#FF0000' status="active" content="紧急(10%)" />
+
+<Progress percent={10} strokeColor="#FF0000" strokeWidth={30} content="紧急 指定高度30px (10%)" />
+
+    <Progress percent={10} strokeColor="#FF0000" strokeWidth={30} content="紧急 指定高度30px (10%)" />
+
+## API
+
+| 参数        | 类型    | 默认值    | 说明                                        |
+| ----------- | ------- | --------- | ------------------------------------------- |
+| percent     | number  | 0         | 百分比                                      |
+| showInfo    | boolean | false     | 是否显示进度数值或状态图标,请设为 false     |
+| strokeColor | string  | "#30CE48" | 进度条的色彩                                |
+| content     | number  | -         | 文字内容                                    |
+| status      | string  | -         | 状态，可选：success exception active normal |
+| strokeWidth | number  | 22        | 进度条线的宽度，单位 px                     |

@@ -1,0 +1,72 @@
+---
+name: Select
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import { Select, Option, OptGroup } from './index.tsx';
+
+# Select 选择器
+
+## 基本使用
+
+<Playground>
+  <Select defaultValue="1">
+    <Option value="1">产品1</Option>
+    <Option value="2">产品2</Option>
+  </Select>
+</Playground>
+
+## 默认未选
+
+<Playground>
+  <Select placeholder="请选择所属机构">
+    <Option value="1">产品1</Option>
+    <Option value="2">产品2</Option>
+  </Select>
+</Playground>
+
+## 不可用
+
+<Playground>
+  <Select defaultValue="1" disabled>
+    <Option value="1">产品1</Option>
+    <Option value="2">产品2</Option>
+  </Select>
+</Playground>
+
+## 边框圆角设置
+
+<Playground>
+  <Select defaultValue="1" placeholder="请选择所属机构" borderRadius="0px">
+    <Option value="1">机构1</Option>
+    <Option value="2">机构2</Option>
+  </Select>
+</Playground>
+
+## 多选
+
+<Playground>
+  <Select mode="multiple" defaultValue={['1', '2']} placeholder="请选择所属机构" borderRadius="0px">
+    <Option value="1">机构1</Option>
+    <Option value="2">机构2</Option>
+    <Option value="3">机构3</Option>
+    <Option value="4">机构4</Option>
+  </Select>
+</Playground>
+
+## 分组
+
+<Playground>
+  <Select defaultValue="1" placeholder="请选择所属机构" borderRadius="0px">
+    <OptGroup label="机构">
+      <Option value="1">机构1</Option>
+      <Option value="2">机构2</Option>
+    </OptGroup>
+    <OptGroup label="组织">
+      <Option value="3">组织1</Option>
+      <Option value="4">组织2</Option>
+    </OptGroup>
+  </Select>
+</Playground>

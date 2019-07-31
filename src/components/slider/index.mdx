@@ -1,0 +1,42 @@
+---
+name: Slider
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Slider from './index';
+
+# Slider 滑动输入条
+
+## 基本使用
+
+<Slider />
+
+    <Slider />
+
+## 带输入框的滑块
+
+<Slider showInputNumber={true} defaultValue={36} />
+
+    <Slider showInputNumber={true} value={36} />
+
+<Slider showInputNumber={true} defaultValue={448} min={200} max={1000} valueName={'斤'} />
+
+    <Slider
+      showInputNumber={true}
+      defaultValue={448}
+      min={200}
+      max={1000}
+      valueName={'斤'}/>
+
+## API
+
+| 参数            | 类型     | 默认值 | 说明           |
+| --------------- | -------- | ------ | -------------- |
+| showInputNumber | boolean  | false  | 是否显示数组框 |
+| defaultValue    | number   | 1      | 默认数值       |
+| max             | number   | 100    | 数值的最大范围 |
+| min             | number   | 1      | 数值的最小范围 |
+| valueName       | string   | -      | 数值单位       |
+| onChange        | function | -      | 数值改变事件   |

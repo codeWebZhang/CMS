@@ -1,0 +1,114 @@
+---
+name: Cascader
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Cascader from './index.tsx';
+
+# Cascader 级联选择
+
+## 基本使用
+
+<Playground>
+  {() => { 
+    const options = [{
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [{
+          value: 'xihu',
+          label: 'West Lake',
+        }],
+      }],
+    }, {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [{
+          value: 'zhonghuamen',
+          label: 'Zhong Hua Men',
+        },
+        {
+          value: 'zhonghuamen1',
+          label: 'Zhong Hua Men1',
+        },
+        {
+          value: 'zhonghuamen2',
+          label: 'Zhong Hua Men2',
+        },
+        {
+          value: 'zhonghuamen3',
+          label: 'Zhong Hua Men3',
+        },
+        {
+          value: 'zhonghuamen4',
+          label: 'Zhong Hua Men4',
+        }],
+      }],
+    }];
+
+    function onChange(value) {
+    }
+    return <Cascader options={options} onChange={onChange} placeholder="Please select" />
+
+}}
+
+</Playground>
+
+## 边框圆角设置
+
+<Playground>
+  {() => { 
+    const options = [{
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [{
+          value: 'xihu',
+          label: 'West Lake',
+        }],
+      }],
+    }, {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [{
+          value: 'zhonghuamen',
+          label: 'Zhong Hua Men',
+        },
+        {
+          value: 'zhonghuamen1',
+          label: 'Zhong Hua Men1',
+        },
+        {
+          value: 'zhonghuamen2',
+          label: 'Zhong Hua Men2',
+        },
+        {
+          value: 'zhonghuamen3',
+          label: 'Zhong Hua Men3',
+        },
+        {
+          value: 'zhonghuamen4',
+          label: 'Zhong Hua Men4',
+        }],
+      }],
+    }];
+
+    function onChange(value) {
+    }
+    return <Cascader borderRadius="0px" options={options} onChange={onChange} placeholder="Please select" />
+
+}}
+
+</Playground>

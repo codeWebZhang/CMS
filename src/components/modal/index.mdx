@@ -1,0 +1,203 @@
+---
+name: Modal
+menu: 信息反馈
+order: 10
+---
+
+import { Playground } from 'docz';
+import Table from '../table/index.tsx';
+import Button from '../button';
+import Modal from './index.tsx';
+const confirm = Modal.confirm;
+
+## 基础调用
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { visible: false }
+    }
+
+    render() {
+      return (
+        <div>
+        <Button type="primary" onClick={()=>{this.setState({visible:true})}}>Open Modal</Button>
+          <Modal title="添加产品" visible={this.state.visible} onOk={()=>{this.setState({visible:false})}} onCancel={()=>{this.setState({visible:false})}}>
+              <p>
+                Some contents...Some Some contents...Some Some contents..sssssssssss.Somes
+                SomeSomeSomeSomessssss contents...Somecontents...Some contents...Somessss contentssssssSomesss
+                contents...Some contents...
+                </p>
+          </Modal>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>
+
+## Confirm
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { visible: false }
+    }
+    showConfirm(){
+        Modal.confirm({
+            title: '提示',
+            children: (
+                <div>
+                    确定要删除该功能吗？删除后不可恢复。
+                </div>
+            ),
+            okText: '确认',
+            cancelText: '取消',
+            width: 250,
+            onOk() {
+            },
+            onCancel() {
+            }
+        });
+    }
+    render() {
+      return (
+        <div>
+        <Button type="primary" onClick={this.showConfirm.bind(this)}>Show Confirm</Button>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>
+
+## Alert
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { visible: false }
+    }
+    showInfo(){
+        Modal.info({
+            title: '提示',
+            children: (
+                <div>
+                    该产品有关联设备，无法删除。
+                </div>
+            ),
+            okText: '知道了',
+            cancelText: '取消',
+            width: 250,
+            onOk() {
+            },
+        });
+    }
+    render() {
+      return (
+        <div>
+        <Button type="primary" onClick={this.showInfo.bind(this)}>Show Alert</Button>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>
+
+## 800 宽度的 Modal
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+    constructor() {
+      super()
+      this.state = { visible: false }
+    }
+
+    render() {
+      return (
+        <div>
+        <Button type="primary" onClick={()=>{this.setState({visible:true})}}>Width 800 Modal</Button>
+          <Modal width={800}  title="添加产品" visible={this.state.visible} onOk={()=>{this.setState({visible:false})}} onCancel={()=>{this.setState({visible:false})}}>
+              <p>
+                Some contents...Some Some contents...Some Some contents..sssssssssss.Somes
+                SomeSomeSomeSomessssss contents...Somecontents...Some contents...Somessss contentssssssSomesss
+                contents...Some contents...
+                </p>
+          </Modal>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>
+
+## 包含 Table 的 Modal
+
+<Playground>
+    
+     {class ModalTest extends React.Component {
+
+    constructor() {
+      super()
+      this.state = { visible: false }
+    }
+
+    render() {
+      let dataSource = [
+
+{
+key: '1',
+name: '胡彦斌',
+age: 32,
+address: '西湖区湖底公园 1 号'
+},
+{
+key: '2',
+name: '胡彦祖',
+age: 42,
+address: '西湖区湖底公园 1 号'
+}
+];
+var columns = [
+
+{
+title: '姓名',
+dataIndex: 'name',
+key: 'name'
+},
+{
+title: '年龄',
+dataIndex: 'age',
+key: 'age'
+},
+{
+title: '住址',
+dataIndex: 'address',
+key: 'address'
+}
+];
+
+      return (
+        <div>
+        <Button type="primary" onClick={()=>{this.setState({visible:true})}}>Show Modal</Button>
+          <Modal title="添加产品" visible={this.state.visible} onOk={()=>{this.setState({visible:false})}} onCancel={()=>{this.setState({visible:false})}}>
+              <Table footer={() => 'Here is footer'} dataSource={dataSource} columns={columns} skin='dark'/>
+          </Modal>
+        </div>
+      )
+    }
+
+}}
+
+</Playground>

@@ -9,6 +9,8 @@ import { hot } from "react-hot-loader/root";
 
 import { store } from "./store";
 
+import Intl from "./intl";
+
 export interface RootProps {}
 
 class Root extends React.Component<RootProps, any> {
@@ -17,11 +19,13 @@ class Root extends React.Component<RootProps, any> {
       <Provider store={store}>
         <ThemeProvider theme={require("./theme")}>
           <Router>
-            <ScrollToTop>
-              <Switch>
-                <Route path="/" component={App} />
-              </Switch>
-            </ScrollToTop>
+            <Intl>
+              <ScrollToTop>
+                <Switch>
+                  <Route path="/" component={App} />
+                </Switch>
+              </ScrollToTop>
+            </Intl>
           </Router>
         </ThemeProvider>
       </Provider>

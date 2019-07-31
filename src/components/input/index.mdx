@@ -1,0 +1,40 @@
+---
+name: Input
+menu: 数据录入
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Input, {TextArea, Search, PassWord, InputNumber} from './index.tsx';
+
+## Input 输入框
+
+#### 基本使用
+
+<Input placeholder="placeholder" style={{ width: '320px' }} />
+
+    <Input placeholder='placeholder' style={{width: '320px'}}/>
+
+#### 文本域
+
+<TextArea placeholder="请输入描述信息" style={{ height: '60px' }} />
+
+    <TextArea  placeholder='请输入描述信息' style={{height: '60px'}}/>
+
+#### 密码框
+
+<PassWord placeholder="请输入密码" style={{ width: '320px' }} />
+
+    <PassWord  placeholder='请输入密码' style={{width: '320px'}}/>
+
+#### 搜索框
+
+<Search placeholder="搜索" style={{ width: '320px' }} />
+
+    <Search  placeholder='搜索' style={{width: '320px'}}/>
+
+#### 数字输入框
+
+<InputNumber min={1} max={10} defaultValue={3} />
+
+    <InputNumber  min={1} max={10} defaultValue={3}/>

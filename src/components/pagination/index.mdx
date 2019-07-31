@@ -1,0 +1,28 @@
+---
+name: Pagination
+menu: 数据展示
+order: 10
+---
+
+import { Playground, Props } from 'docz';
+import Pagination from './index.tsx';
+
+# Pagination 分页
+
+## 基本使用
+
+<Playground>
+  <Pagination current={2} total={50} skin="dark" />
+</Playground>
+
+## 设置 pageSize
+
+<Playground>
+  <Pagination current={2} total={50} pageSize={5} skin="dark" />
+</Playground>
+
+## 浅色
+
+<Playground>
+  <Pagination current={2} total={50} skin="light" />
+</Playground>
