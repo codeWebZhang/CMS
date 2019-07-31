@@ -2,7 +2,7 @@ import * as React from "react";
 import { withStyles } from "@material-ui/styles";
 import { Card } from "antd";
 
-// import ColorHash from "../../../utils/ColorHash";
+import ColorHash from "../../../utils/ColorHash";
 
 export interface UserInfoProps {
   classes;
@@ -74,13 +74,14 @@ const styles: any = theme => ({
 
 const UserInfo: React.FunctionComponent<UserInfoProps> = props => {
   const { classes, role, name } = props;
-  //   let colorHash = new ColorHash();
-  //   let bgColor = colorHash.hex(name);
+  let colorHash = new ColorHash();
+  let bgColor = colorHash.hex(name);
   return (
     <Card className={classes.card} bordered={false}>
       <Card.Grid className={classes.grid}>
-        {/* <div className={classes.avatar} style={{ backgroundColor: bgColor }}> */}
-        <div className={classes.avatar}>{name.charAt(0)}</div>
+        <div className={classes.avatar} style={{ backgroundColor: bgColor }}>
+          {name.charAt(0)}
+        </div>
         <div className={classes.wrap}>
           <p className={classes.role}>{role}</p>
           <p className={classes.name}>{name}</p>
