@@ -39,8 +39,8 @@ module.exports = {
     rules: [
       {
         test: /\.(tsx?|jsx?)$/,
-        loader: "ts-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [{ loader: "ts-loader", options: { transpileOnly: true } }]
       },
       {
         test: /\.css$/,

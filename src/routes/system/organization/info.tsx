@@ -190,7 +190,7 @@ class Info extends React.Component<IInfoProps, any> {
   public render() {
     let { organizationId } = this.props.match.params;
     let { classes } = this.props;
-
+    console.log("info");
     return (
       <ContentWapper>
         <InfoPanel
