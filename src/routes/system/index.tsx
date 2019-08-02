@@ -29,8 +29,7 @@ const System: React.FunctionComponent<SystemProps> = ({ match, classes }) => {
         <Route path={`${match.url}/log`} component={Log} /> */}
         <Redirect
           exact
-          // from={`${match.url}/`}
-          from={"/"}
+          from={`${match.url}/`}
           to={`${match.url}/organization`}
         />
       </Switch>
